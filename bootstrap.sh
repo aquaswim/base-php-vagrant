@@ -24,4 +24,7 @@ apt install mariadb-server -y
 systemctl start mariadb.service
 systemctl enable mariadb.service
 
-# TODO: secure mariadb automation
+# secure mariadb with root password
+/vagrant_data/tools/mysql_secure.sh "password"
+
+# create database
