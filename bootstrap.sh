@@ -29,6 +29,7 @@ systemctl enable mariadb.service
 /vagrant_data/tools/mysql_secure.sh "password"
 
 # create database
+/vagrant_data/tools/create_db.sh "mydb" "password"
 
 # install php 7.1
 apt-get install -y python-software-properties
