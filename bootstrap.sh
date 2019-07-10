@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 #
 # source https://www.vultr.com/docs/how-to-install-apache-24-mariadb-10-and-php-7x-on-ubuntu-16-04
+export DEBIAN_FRONTEND=noninteractive
 apt-get update -y
 # install apache
 apt-get install -y apache2
@@ -10,6 +11,10 @@ if ! [ -L /var/www ]; then
 fi
 # disable directory listing
 sed -i "s/Options Indexes FollowSymLinks/Options FollowSymLinks/" /etc/apache2/apache2.conf
+# enable allow override
+sed -i "s/AllowOverride None/AllowOverride All/" /etc/apache2/apache2.conf
+sudo a2enmod rewrite
+# restart apache to apply config
 systemctl restart apache2.service
 
 # mariadb (search mirror in mariadb website)
@@ -43,6 +48,5 @@ apt-get install -y php7.1 libapache2-mod-php7.1 php7.1-cli php7.1-common php7.1-
 # install composer
 apt-get install git unzip -y
 curl -sS https://getcomposer.org/installer -o ~/composer-setup.php
-
-# 	verify composer
+# TODO:verify composer
 php ~/composer-setup.php --install-dir=/usr/local/bin --filename=composer
