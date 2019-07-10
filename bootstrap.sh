@@ -21,6 +21,9 @@ add-apt-repository 'deb [arch=amd64,arm64,i386,ppc64el] http://sgp1.mirrors.digi
 apt update -y
 apt install mariadb-server -y
 
+# change mariadb listen address to 0.0.0.0
+sed -i "s/.*bind-address.*/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
+
 # enable mariadb
 systemctl start mariadb.service
 systemctl enable mariadb.service
@@ -35,4 +38,4 @@ systemctl enable mariadb.service
 apt-get install -y python-software-properties
 add-apt-repository -y ppa:ondrej/php
 apt-get update -y
-apt-get install -y php7.1 libapache2-mod-php7.1 php7.1-cli php7.1-common php7.1-mbstring php7.1-gd php7.1-intl php7.1-xml php7.1-mysql php7.1-mcrypt php7.1-zip
+apt-get install -y php7.1 libapache2-mod-php7.1 php7.1-cli php7.1-common php7.1-mbstring php7.1-gd php7.1-intl php7.1-xml php7.1-mysql php7.1-mcrypt php7.1-zip php7.1-gettext
