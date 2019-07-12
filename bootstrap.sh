@@ -13,7 +13,7 @@ fi
 sed -i "s/Options Indexes FollowSymLinks/Options FollowSymLinks/" /etc/apache2/apache2.conf
 # enable allow override
 sed -i "s/AllowOverride None/AllowOverride All/" /etc/apache2/apache2.conf
-sudo a2enmod rewrite
+a2enmod rewrite
 # restart apache to apply config
 systemctl restart apache2.service
 
