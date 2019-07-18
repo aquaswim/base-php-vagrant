@@ -54,3 +54,6 @@ apt-get install git unzip -y
 curl -sS https://getcomposer.org/installer -o ~/composer-setup.php
 # TODO:verify composer
 php ~/composer-setup.php --install-dir=/usr/local/bin --filename=composer
+
+# auto remove
+apt-get autoremove -y
