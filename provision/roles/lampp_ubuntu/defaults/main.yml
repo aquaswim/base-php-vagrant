@@ -1,4 +1,0 @@
-lampp_ubuntu:
-  docroot: /var/www/html
-  package: apache2
-  service: apache2

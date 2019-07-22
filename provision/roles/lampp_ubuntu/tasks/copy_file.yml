@@ -1,0 +1,8 @@
+- name: Copy Dummy Html Web Content
+  copy:
+    src: "{{ role_path }}/files/index.html"
+    dest: "/var/www/html/index.html"
+- name: Copy Php Info
+  copy:
+    src: "{{ role_path }}/files/info.php"
+    dest: "/var/www/html/info.php"

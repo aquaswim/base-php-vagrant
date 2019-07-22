@@ -1,13 +1,2 @@
-- name: "Install apache package"
-  apt:
-    name: "{{lampp_ubuntu.package}}"
-    state: present
-- name: "Start apache service"
-  service:
-    name: "{{lampp_ubuntu.service}}"
-    state: started
-    enabled: yes
-- name: Copy Web Content
-  copy:
-    src: "{{ role_path }}/files/index.html"
-    dest: "{{ lampp_ubuntu.docroot }}/index.html"
+- include: install_webserver.yml
+- include: copy_file.yml
